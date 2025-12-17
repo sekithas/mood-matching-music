@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+    <div class="d-flex align-items-center mb-3 gap-2">
+        <a href="/" class="btn btn-primary">&larr; Back</a>
+        <button onclick="location.reload()" class="btn btn-primary">New Song Set</button>
+    </div>
+    <div></div>
+        <h2 class="text-center flex-grow-1">Songs for your {{ type }} mood:</h2>
+    </div>
+
+    <div class = "table-responsive" style="padding: 20px;">
+        <table class="table table-striped table-hover bg-transparent">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Artist</th>
+                    <th>Popularity</th>
+                    <th>Preview</th>
+                    <th>Add to favorites</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for song in mood %}
+                    <tr>
+                        <td>{{ song.track_name }}</td>
+                        <td>{{ song.track_artist }}</td>
+                        <td>{{ song.track_popularity }}</td>
+                        <td>
+                            <iframe
+                                src="https://open.spotify.com/embed/track/{{ song.track_id }}"
+                                width="300"
+                                height="80"
+                                frameborder="0"
+                                allowtransparency="true"
+                                allow="encrypted-media">
+                            </iframe>
+                        </td>
+                        <td>
+                            <form action="/favorites" method="post">
+                                <input type="hidden" name="song_id" value="{{ song.track_id }}">
+                                <button class="btn btn-sm btn-outline-success" >⭐</button>
+                            </form>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

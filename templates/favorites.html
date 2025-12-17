@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+    <div class="d-flex align-items-center mb-3 gap-2">
+        <a href="/" class="btn btn-primary">&larr; Back</a>
+        <form action="/favorites" method="post">
+            <input type="hidden" name="clear" value = "1">
+            <button class="btn btn-danger">Clear Favorites</button>
+        </form>
+    </div>
+
+    {% if songs %}
+    <h2 class="text-center">Your Favorite Songs</h2>
+
+    <div style="padding: 20px;">
+        <table class="table table-striped table-hover bg-transparent">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Artist</th>
+                    <th>Album</th>
+                    <th>Release Date</th>
+                    <th>Preview</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for song in songs %}
+                <tr>
+                    <td>{{ song.track_name }}</td>
+                    <td>{{ song.track_artist }}</td>
+                    <td>{{ song.track_album_name }}</td>
+                    <td>{{ song.track_album_release_date }}</td>
+                    <td>
+                        <iframe
+                                src="https://open.spotify.com/embed/track/{{ song.track_id }}"
+                                width="300"
+                                height="80"
+                                frameborder="0"
+                                allowtransparency="true"
+                                allow="encrypted-media">
+                        </iframe>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% else %}
+    <h2 class="text-center">You have no favorite songs yet.</h2>
+    {% endif %}
+{% endblock %}

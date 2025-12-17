@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block body %}
+    <div class="center-container-grid">
+        <h1 class = "animated-text">Music to Match your Mood</h1>
+        <br>
+        <p class="mood-badges">
+            <a href="/happy">
+                <img src="https://img.shields.io/badge/Happy-FFD93D?style=for-the-badge&logo=smile&logoColor=black"/>
+            </a>
+
+            <a href="/sad">
+                <img src="https://img.shields.io/badge/Sad-5C6BC0?style=for-the-badge&logo=music&logoColor=white"/>
+            </a>
+
+            <a href="/energetic">
+                <img src="https://img.shields.io/badge/Energetic-FF5722?style=for-the-badge&logo=fire&logoColor=white"/>
+            </a>
+
+            <a href="/chill">
+                <img src="https://img.shields.io/badge/Chill-26A69A?style=for-the-badge&logo=leaf&logoColor=white"/>
+            </a>
+        </p>
+        <a href="/favorites">
+            <img src="https://img.shields.io/badge/Favorites-F48FB1?style=for-the-badge&logo=heart&logoColor=white"/>
+        </a>
+    </div>
+
+
+{% endblock %}
