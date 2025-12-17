@@ -1,8 +1,5 @@
 ## Mood Matching Music
 
-__Video Demo:__
-- https://www.youtube.com/watch?v=yu43xa2sfq8
-
 __Tech Stack:__
 
 1. SQL
