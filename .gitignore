@@ -1,0 +1,18 @@
+# Python virtual environment
+venv/
+
+# Python cache
+__pycache__/
+
+# Flask session files
+flask_session/
+
+# Database files
+*.db
+*.sqlite
+
+# OS files
+.DS_Store
+
+# VS Code settings
+.vscode/
