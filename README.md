@@ -47,19 +47,5 @@ Mood Matching Music is a web application that recommends songs based on a userâ€
 - Tables were used to display songs because it is clean and can be easily customized by bootstrap, compared to using lists that look unappealing. Specifically, responsive tables was chosen because of more visual appeal and more dynamic experience, horizontal scroll on mobile will allow embed to be properly shwon.
 - Spotify embed is used instead of storing audio locally because it is simple and legal.
 
-## References
-- The use of AI (ChatGPT) is acknowledged for assistance in debugging problems in code
-- https://getbootstrap.com/docs/5.3/content/tables/ (table customization)
-- https://www.w3schools.com/css/css_background.asp (background options)
-- https://www.w3schools.com/css/css_padding.asp (padding)
-- https://www.w3schools.com/css/css3_animations.asp (animated text)
-- https://dev.to/tiaeastwood/super-simple-css-animation-for-fade-in-on-page-load-2p8m (animated text)
-- https://www.geeksforgeeks.org/html/html-iframes/ (embedding spotify preview)
-- https://getbootstrap.com/docs/5.3/components/buttons/ (button properties)
-- https://v2.tailwindcss.com/docs (tailwind properties)
-- https://stackoverflow.com/questions/9449101/how-to-stop-flask-from-initialising-twice-in-debug-mode (helped me to figure out and prevent annoying double execution, with the help of AI)
-- https://shields.io/ (to get custom badges)
-
-
 ## Install dependencies
 - pip install cs50 flask flask-session
