@@ -48,4 +48,4 @@ Mood Matching Music is a web application that recommends songs based on a userâ€
 - Spotify embed is used instead of storing audio locally because it is simple and legal.
 
 ## Install dependencies
-- pip install cs50 flask flask-session
+- pip install sqlite3 flask flask-session
