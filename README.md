@@ -36,13 +36,6 @@ Mood Matching Music is a web application that recommends songs based on a userâ€
     - `favorites.html`: Displays the userâ€™s favorite songs and allows clearing the list.
 - `static/styles.css`: Custom CSS for styling the app, including background images, animated text, table layout, and responsive design.
 
-## Reflection
-- Faced obstacles when trying to implement the add to favorites function as when clicked the same song was added twice eventhough if/else handling was done. This was due to double execution of the flask file.
-    - This experience helped me learn about Flask's debug reloader.
-- There was a bug, where no matter how much I changed the styles for the h1/h2 tag, it did not change.
-    - This allowed me to learn that bootstrap overwrites my style modification unless I load it before the styles.css link.
-- Improvements made would be adding a filter menu, where search could be done by certain artists/albums and adding the Spotify Web API for full playback within the web application itself.
-
 ## Design Choices
 - While databases were considered for favorites, sessions was chosen instead of databases because of its simplicity in implementation in a personal app.
 - Specific valence and energy values were used for each route.
