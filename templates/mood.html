@@ -38,14 +38,22 @@
                             </iframe>
                         </td>
                         <td>
-                            <form action="/favorites" method="post">
-                                <input type="hidden" name="song_id" value="{{ song.track_id }}">
-                                <button class="btn btn-sm btn-outline-success" >⭐</button>
-                            </form>
+                            <button class="btn btn-sm btn-outline-success" onclick="addToFavorites('{{ song.track_id }}')">⭐</button>
                         </td>
                     </tr>
                 {% endfor %}
             </tbody>
         </table>
+        <script>
+            function addToFavorites(songId) {
+                fetch("/favorites", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/x-www-form-urlencoded"
+                    },
+                    body: "song_id=" + encodeURIComponent(songId)
+                });
+            }
+        </script>
     </div>
 {% endblock %}
