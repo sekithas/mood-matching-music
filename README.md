@@ -20,6 +20,7 @@ Mood Matching Music is a web application that recommends songs based on a user�
     - Useful to determine if the songs are of your taste.
 - Add songs to your favorites list by clicking ⭐️.
     - Useful so you can view your songs later on.
+    - Success box to know that you added the song successfully.
 - View your favorite songs, and clear it by clicking on the danger button "Clear Favorites".
 - Responsive table layout (using bootstrap) and animated text.
     - Provides a better UX.
