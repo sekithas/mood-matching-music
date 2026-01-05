@@ -48,3 +48,15 @@ h2 {
     font-weight: 700;
     line-height: 1;
 }
+
+#message {
+    position: fixed;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1050;
+    min-width: 125px;
+    padding: 6px 12px;    
+    text-align: center;
+    display: none;
+}
