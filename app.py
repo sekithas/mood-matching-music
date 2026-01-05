@@ -83,7 +83,6 @@ def favorites():
             session.modified = True
             #clears the current favorite songs when user clicks "Clear Favorites"
 
-        # returns the favorites route to their favorites page either way
         db.close()
         return redirect("/favorites")
 
