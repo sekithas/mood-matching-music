@@ -7,6 +7,7 @@ __Tech Stack:__
 3. Flask
 4. CSS
 5. HTML
+6. Javascript
 
 ## Description:
 Mood Matching Music is a web application that recommends songs based on a user’s mood. Users can select from moods such as **happy, sad, energetic, or chill**, and the app displays a list of songs matching that mood. Users can also **add songs to their favorites** and clear their favorites list. The project uses a dataset from Kaggle (as a csv file), which was imported into a **SQLite database** (`songs.db`) to store song metadata such as track name, artist, popularity, album, and release date. The mood classification relies on valence and energy metrics, where valence represents musical positivity and energy represents intensity. Songs are selected based on ranges suitable for each mood, ensuring that the recommended tracks match the intended emotional tone. Randomizing the songs each time allows users to discover new music even if they select the same mood multiple times, making the experience more engaging. The mood tables show the song name, artist, popularity score (0-100) based on spotify, a spotify embedded preview of the song and an add to favorites button as the last column.
