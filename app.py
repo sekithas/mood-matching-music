@@ -67,46 +67,44 @@ def chill():
 @app.route("/favorites", methods=["GET", "POST"])
 def favorites():
     db = get_db_connection()
-    # if user first time logs in, then a new session list is formed, to keep track of the favorite songs
+
     if "favorites" not in session:
         session["favorites"] = []
+        #creates a new session for first time users
 
-    # user wants input, either to clear songs from favorites or add to favorites
     if request.method == "POST":
-        # checks if user wants to add a song
         if request.form.get("song_id"):
+            #condition to see if user wants to add to favorites
             song_id = request.form.get("song_id")
 
             favorites = set(session["favorites"])
-            #ensures no duplicates so user can't add same song twice to favorites
             favorites.add(song_id)
 
             session["favorites"] = list(favorites)
             session.modified = True
 
-        # checks if user wants to clear their favorites
         elif request.form.get("clear"):
+            #condition to see if user wants to clear songs
             session["favorites"] = []
             session.modified = True
-            #clears the current favorite songs when user clicks "Clear Favorites"
             return redirect("/favorites")
 
-        db.close()
         return "", 204
 
-    # if user has no favorites currently, then a list is created
     if len(session["favorites"]) == 0:
+        # condition allows to create the table in the favorites page
         songs = []
-    # allows to create the table in the favorites page
+
     else:
-        # creates (?, ?, ? ...) as SQL cannot read python list itself
+        # condition to display favorites in a table
         placeholders = ",".join(["?"] * len(session["favorites"]))
-        query = f"SELECT track_id, track_name, track_artist, track_popularity, track_album_name, track_album_release_date FROM songs WHERE track_id IN ({placeholders})"
-        # adds details of each song as a dictionary to the songs list
+        query = f"""SELECT track_id, track_name, track_artist, track_popularity, 
+                    track_album_name, track_album_release_date 
+                    FROM songs WHERE track_id IN ({placeholders})"""
         songs = db.execute(query, session["favorites"]).fetchall()
+
     db.close()
     return render_template("favorites.html", songs=songs)
 
-#prevent the same song being added to favorites twice, by preventing route execution twice
 if __name__ == "__main__":
     app.run(debug=True, use_reloader=False)
