@@ -18,11 +18,15 @@ def get_db_connection():
 #function to get songs according to each metric
 def get_mood_songs(energy, valence):
     with get_db_connection() as db:
-        return db.execute("""SELECT track_id, track_name, track_artist, track_popularity
+        return db.execute("""SELECT * FROM (
+            SELECT track_id, track_name, track_artist, track_popularity
             FROM songs WHERE valence BETWEEN ? AND ?
             AND energy BETWEEN ? AND ?
             ORDER BY RANDOM()
-            LIMIT 30""",
+            LIMIT 100
+            )
+            ORDER BY track_popularity DESC
+            LIMIT 30;""",
             (valence[0], valence[1], energy[0], energy[1])
         ).fetchall()
     
