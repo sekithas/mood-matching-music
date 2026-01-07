@@ -1,6 +1,7 @@
 {% extends "layout.html" %}
 
 {% block body %}
+    <script src="{{ url_for('static', filename='js/spotify_embed.js') }}"></script> 
 
     <div class="d-flex align-items-center mb-3 gap-2">
         <a href="/" class="btn btn-primary">&larr; Back</a>
@@ -32,15 +33,11 @@
                     <td>{{ song.track_album_name }}</td>
                     <td>{{ song.track_album_release_date }}</td>
                     <td>
-                        <iframe
-                                src="https://open.spotify.com/embed/track/{{ song.track_id }}"
-                                width="300"
-                                height="80"
-                                frameborder="0"
-                                allowtransparency="true"
-                                allow="encrypted-media">
-                        </iframe>
-                    </td>
+                        <button class="btn btn-sm btn-outline-primary" onclick="loadPlayer('{{ song.track_id }}')">
+                            ▶ Preview
+                        </button>
+                        <div id="player-{{ song.track_id }}"></div>
+                    </td>   
                 </tr>
                 {% endfor %}
             </tbody>
