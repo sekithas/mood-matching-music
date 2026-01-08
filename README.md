@@ -29,7 +29,7 @@ Mood Matching Music is a web application that recommends songs based on a userâ€
 - Responsive table layout (using bootstrap) and animated text.
     - Provides a better UX.
 
-### File Overview
+## File Overview:
 
 - `app.py`: Main Flask application. Contains route handlers for the home page, mood-specific pages (happy, sad, energetic, chill), and the favorites page. Handles user sessions to store favorite songs. Queries the SQLite database for songs matching each mood and passes them to the templates.
 - `songs.db`: SQLite database storing all song data, imported from a Kaggle CSV. Contains columns for track ID, name, artist, popularity, album name, album release date, valence, and energy.
@@ -49,5 +49,5 @@ Mood Matching Music is a web application that recommends songs based on a userâ€
 - Tables were used to display songs because it is clean and can be easily customized by bootstrap, compared to using lists that look unappealing. Specifically, responsive tables was chosen because of more visual appeal and more dynamic experience, horizontal scroll on mobile will allow embed to be properly shwon.
 - Spotify embed is used instead of storing audio locally because it is simple and legal.
 
-## Install dependencies
+## Install Dependencies
 - pip install flask flask-session
