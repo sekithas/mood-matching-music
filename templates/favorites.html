@@ -23,6 +23,7 @@
                     <th>Album</th>
                     <th>Release Date</th>
                     <th>Preview</th>
+                    <th>Remove from favorites</th>
                 </tr>
             </thead>
             <tbody>
@@ -34,10 +35,16 @@
                     <td>{{ song.track_album_release_date }}</td>
                     <td>
                         <button class="btn btn-sm btn-outline-primary" onclick="loadPlayer('{{ song.track_id }}')">
-                            ▶ Preview
+                            ▶
                         </button>
                         <div id="player-{{ song.track_id }}"></div>
                     </td>   
+                    <td>
+                        <form action="/favorites" method="post" style="display:inline;">
+                            <input type="hidden" name="delete" value="{{ song.track_id }}">
+                            <button class="btn btn-sm btn-danger btn-outline-primary">🗑️</button>
+                        </form>
+                    </td>
                 </tr>
                 {% endfor %}
             </tbody>
