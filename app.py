@@ -9,13 +9,13 @@ app.config["SESSION_PERMANENT"] = False
 app.config["SESSION_TYPE"] = "filesystem"
 Session(app)
 
-#function to connect to database
+# function to connect to database
 def get_db_connection():
     conn = sqlite3.connect('songs.db')
     conn.row_factory = sqlite3.Row 
     return conn
 
-#function to get songs according to each metric
+# function to get songs according to each metric
 def get_mood_songs(energy, valence, search=None):
     query = """
         SELECT * FROM (SELECT DISTINCT track_id, track_name, track_artist, track_popularity
@@ -110,11 +110,11 @@ def favorites():
 
     if "favorites" not in session:
         session["favorites"] = []
-        #creates a new session for first time users
+        # creates a new session for first time users
 
     if request.method == "POST":
         if request.form.get("song_id"):
-            #condition to see if user wants to add to favorites
+            # condition to see if user wants to add to favorites
             song_id = request.form.get("song_id")
 
             favorites = set(session["favorites"])
@@ -124,12 +124,13 @@ def favorites():
             session.modified = True
 
         elif request.form.get("clear"):
-            #condition to see if user wants to clear songs
+            # condition to see if user wants to clear all songs
             session["favorites"] = []
             session.modified = True
             return redirect("/favorites")
         
         elif request.form.get("delete"):
+            # condition to see if user wants to delete a specific song
             songID = request.form.get("delete")
             session["favorites"].remove(songID)
             return redirect("/favorites")
@@ -141,7 +142,7 @@ def favorites():
         songs = []
 
     else:
-        # condition to display favorites in a table
+        # condition to allow display of favorite songs in a table
         placeholders = ",".join(["?"] * len(session["favorites"]))
         query = f"""SELECT DISTINCT track_id, track_name, track_artist, 
                     track_popularity, track_album_name, track_album_release_date 
