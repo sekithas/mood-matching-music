@@ -20,10 +20,12 @@ Mood Matching Music is a web application that recommends songs based on a user‚Ä
 - Songs are randomly selected, with popularity used as a ranking signal.
 - Directly listen to a 30 second preview of the song from the app itself (Spotify preview embed).
     - Useful to determine if the songs are of your taste.
+- In each mood, you can search for songs you want and add them to favorites.
 - Add songs to your favorites list by clicking ‚≠êÔ∏è.
     - Useful so you can view your songs later on.
     - Success box to know that you added the song successfully.
 - View your favorite songs, and clear it by clicking on the danger button "Clear Favorites".
+- Individually delete songs from favorites.
 - Responsive table layout (using bootstrap) and animated text.
     - Provides a better UX.
 
@@ -39,6 +41,7 @@ Mood Matching Music is a web application that recommends songs based on a user‚Ä
 - `static/styles.css`: Custom CSS for styling the app, including background images, animated text, table layout, and responsive design.
 - `static/js/favorites.js`: JavaScript code for adding songs to favorites without needing to reload page (AJAX) and having a timeout for the success message.
 - `static/js/spotify_embed.js`: JavaScript code to display the preview in a separate container, only when the user wants, just below the preview button. Helped prevent 429, Too Many Requests.
+- `static/js/mood.js`: JavaScript code to update live song table when the user types the artist/song name into search bar.
 
 ## Design Choices
 - While databases were considered for favorites, sessions was chosen instead of databases because of its simplicity in implementation in a personal app.
